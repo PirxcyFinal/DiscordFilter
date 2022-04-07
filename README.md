@@ -1,16 +1,15 @@
-# PirxcyPinger
-Use This To Upload Files To PirxcyPinger
+# DiscordFilter
+Use This To Detect Filtered words on discord (nitro scams etc)
 
-[![Downloads](https://pepy.tech/badge/PirxcyPinger)](https://pepy.tech/project/PirxcyPinger)
-[![Downloads](https://pepy.tech/badge/pirxcypinger/week)](https://pepy.tech/project/pirxcypinger)
-[![Downloads](https://pepy.tech/badge/pirxcypinger/month)](https://pepy.tech/project/pirxcypinger)
-[![Requires: Python 3.x](https://img.shields.io/pypi/pyversions/PirxcyPinger.svg)](https://pypi.org/project/PirxcyPinger/)
-[![Version: 0.0.2](https://img.shields.io/pypi/v/PirxcyPinger.svg)](https://pypi.org/project/PirxcyPinger/)
+[![Downloads](https://pepy.tech/badge/DiscordFilter)](https://pepy.tech/project/DiscordFilter)
+[![Downloads](https://pepy.tech/badge/DiscordFilter/week)](https://pepy.tech/project/DiscordFilter)
+[![Downloads](https://pepy.tech/badge/DiscordFilter/month)](https://pepy.tech/project/DiscordFilter)
+[![Requires: Python 3.x](https://img.shields.io/pypi/pyversions/DiscordFilter.svg)](https://pypi.org/project/DiscordFilter/)
+[![Version: 0.0.2](https://img.shields.io/pypi/v/DiscordFilter.svg)](https://pypi.org/project/DiscordFilter/)
 
 ### Setup:
-``pip3 install PirxcyPinger``
+``pip3 install DiscordFilter``
 
-[Examples](https://github.com/PirxcyFinal/PirxcyPinger/tree/main/Examples "github.com/PirxcyFinal/PirxcyPinger/tree/main/Examples")
 
 ```python
 import DiscordFilter
