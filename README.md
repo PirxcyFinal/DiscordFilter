@@ -31,7 +31,7 @@ async def update_blacklist():
 
 @bot.event
 async def event_ready():
-  bot.loop.create_task(update_blacklist)#Set a background task to check for updates every 5min.
+  bot.loop.create_task(update_blacklist())#Set a background task to check for updates every 5min.
 
 @bot.event
 async def on_message(message):
