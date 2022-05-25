@@ -41,10 +41,9 @@ class HTTPClient:
         self.session = session
 
     async def json_or_text(self, response: aiohttp.ClientResponse) -> None:
-        text = await response.text(encoding='utf-8')
         if 'application/json' in response.headers.get('content-type', ''):
-          return json.loads(text)
-        return text
+          return await response.json()
+        return await response.text()
 
     async def close(self) -> None:
         await self.session.close()
