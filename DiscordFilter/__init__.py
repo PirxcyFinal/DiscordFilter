@@ -41,12 +41,12 @@ class HTTPClient:
         self.session = session
 
     async def decider(self, response: aiohttp.ClientResponse) -> None:
-	jsonResponse = await response.json()
-	plain = await response.text()
-	await self.close()
-        if 'application/json' in response.headers.get('content-type', ''):
-          return await response.json()
-        return await response.text()
+      jsonResponse = await response.json()
+      plain = await response.text()
+      await self.close()
+      if 'application/json' in response.headers.get('content-type', ''):
+        return jsonResponse
+      return plain
 
     async def close(self) -> None:
         return await self.session.close()
