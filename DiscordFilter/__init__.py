@@ -40,7 +40,7 @@ class HTTPClient:
     def __init__(self, session: aiohttp.ClientSession) -> None:
         self.session = session
 
-    async def json_or_text(response: aiohttp.ClientResponse) -> None:
+    async def json_or_text(self, response: aiohttp.ClientResponse) -> None:
         text = await response.text(encoding='utf-8')
         if 'application/json' in response.headers.get('content-type', ''):
           return json.loads(text)
@@ -52,6 +52,7 @@ class HTTPClient:
     async def request(self, method: str, *args: Any, **kwargs: Any) -> Union[str, dict]:
         async with self.session.request(method, *args, **kwargs) as response:
             o = await response.text()
+            return await self.json_or_text(o)		
             return json.loads(o)
 
     async def get(self, *args: Any, **kwargs: Any) -> Union[str, dict]:
