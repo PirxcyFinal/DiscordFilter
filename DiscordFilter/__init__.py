@@ -40,19 +40,20 @@ class HTTPClient:
     def __init__(self, session: aiohttp.ClientSession) -> None:
         self.session = session
 
-    async def json_or_text(self, response: aiohttp.ClientResponse) -> None:
+    async def decider(self, response: aiohttp.ClientResponse) -> None:
+	jsonResponse = await response.json()
+	plain = await response.text()
+	await self.close()
         if 'application/json' in response.headers.get('content-type', ''):
           return await response.json()
         return await response.text()
 
     async def close(self) -> None:
-        await self.session.close()
+        return await self.session.close()
 
     async def request(self, method: str, *args: Any, **kwargs: Any) -> Union[str, dict]:
         async with self.session.request(method, *args, **kwargs) as response:
-            o = await response.text()
-            return await self.json_or_text(response)		
-            return json.loads(o)
+            return await self.json_or_text(response)
 
     async def get(self, *args: Any, **kwargs: Any) -> Union[str, dict]:
         return await self.request('GET', *args, **kwargs)
