@@ -51,7 +51,7 @@ class HTTPClient:
     async def request(self, method: str, *args: Any, **kwargs: Any) -> Union[str, dict]:
         async with self.session.request(method, *args, **kwargs) as response:
             o = await response.text()
-            return await self.json_or_text(o)		
+            return await self.json_or_text(response)		
             return json.loads(o)
 
     async def get(self, *args: Any, **kwargs: Any) -> Union[str, dict]:
