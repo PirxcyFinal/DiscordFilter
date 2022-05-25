@@ -93,6 +93,7 @@ class filter:
       if added == 0:
         return False
       with open(self.blacklist_file) as f_:
+	print(stored_words)
         json.dump(
           stored_words,
           f_,
